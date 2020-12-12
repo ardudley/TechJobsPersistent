@@ -1,12 +1,29 @@
-﻿<h1>Add a Job</h1>
+﻿@model TechJobsPersistent.ViewModels.AddJobViewModel
+
+<h1>Add a Job</h1>
 
 <form asp-controller="Home" asp-action="ProcessAddJobForm" method="post">
+
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" />
+        <input class="form-control" type="text" name="Name" />
         <span></span>
     </div>
 
+@**@
+
+<div class="form-group">
+
+
+    <label asp-for="EmployerID">Employer Name</label>
+    <select asp-for="EmployerID" asp-items="Model.Employers"></select>
+    <br />
+    @Html.ActionLink("Add Employer", "Add", "Employer")
+
+
+</div>
+
     <input type="submit" value="Add Job" />
+
 </form>
 

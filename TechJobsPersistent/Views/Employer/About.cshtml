@@ -1,6 +1,11 @@
-﻿<h1>Employer: Name</h1>
+﻿@model List<TechJobsPersistent.Models.Employer>
 
-<div>
-    <p>Name: name</p>
-    <p>Location: location</p>
+<div class="container body-content">
+            @foreach (Employer employer in Model)
+        {
+            <p>Name: @employer.Name</p>
+            <p>Employer: @employer.Location</p>
+
+        }
 </div>
+
