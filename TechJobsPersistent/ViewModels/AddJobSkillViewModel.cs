@@ -18,11 +18,11 @@ namespace TechJobsPersistent.ViewModels
 
         public List<SelectListItem> Skills { get; set; }
 
-        public AddJobSkillViewModel(Job theJob, List<Skill> possibleSkills)
+        public AddJobSkillViewModel(Job theJob, List<Skill> selectedSkills)
         {
             Skills = new List<SelectListItem>();
 
-            foreach (var skill in possibleSkills)
+            foreach (var skill in selectedSkills)
             {
                 Skills.Add(new SelectListItem
                 {

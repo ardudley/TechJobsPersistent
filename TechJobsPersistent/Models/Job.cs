@@ -24,5 +24,6 @@ namespace TechJobsPersistent.Models
             Name = name;
             Employer = employer;
         }
+
     }
 }

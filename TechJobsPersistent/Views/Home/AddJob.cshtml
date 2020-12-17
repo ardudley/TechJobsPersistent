@@ -5,24 +5,33 @@
 <form asp-controller="Home" asp-action="ProcessAddJobForm" method="post">
 
     <div class="form-group">
-        <label>Name</label>
+        <label>Job Name</label>
         <input class="form-control" type="text" name="Name" />
         <span></span>
     </div>
 
-@**@
+    @**@
 
-<div class="form-group">
+    <div class="form-group">
 
+        <label asp-for="EmployerID">Employer Name</label>
+        <select asp-for="EmployerID" asp-items="Model.Employers"></select>
+        <br />
+        @Html.ActionLink("Add New Employer", "Add", "Employer")
 
-    <label asp-for="EmployerID">Employer Name</label>
-    <select asp-for="EmployerID" asp-items="Model.Employers"></select>
-    <br />
-    @Html.ActionLink("Add Employer", "Add", "Employer")
+    </div>
 
-
-</div>
-
+    <div class="form-group">
+        <label>Add Skills</label>
+        <br>
+        @foreach (var skill in Model.Skills)
+        {
+            <label id="selectSkills">@skill.Text</label>
+            <input id="selectSkills" type="checkbox" name="selectedSkills" value="@skill.Value" />
+        }
+        <br>
+        @Html.ActionLink("Add New Skill", "Add", "Skill")
+    </div>
     <input type="submit" value="Add Job" />
 
 </form>
